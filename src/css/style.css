@@ -1,0 +1,556 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Varela+Round&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  line-height: 200%;
+  letter-spacing: 0.5px;
+}
+
+body {
+  background-color: #F2F2F2;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+button,
+input,
+label,
+li {
+  color: #404042;
+}
+
+li {
+  list-style: none;
+}
+
+#main-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 8.75rem;
+  min-height: 5rem;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+#main-header #main-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+#main-header #main-title img {
+  width: 3.5rem;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#main-header #main-title h1 span {
+  color: #e8973e;
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-family: "Varela Round", sans-serif;
+}
+#main-header button {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #98c455;
+  border: 2px solid #98c455;
+}
+#main-header button:hover {
+  background-color: #e8973e;
+  border: 2px solid #e8973e;
+  scale: 1.025;
+}
+@media screen and (max-width: 768px) {
+  #main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    min-height: 3rem;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  #main-header #main-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  #main-header #main-title img {
+    width: 3.5rem;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #main-header #main-title h1 {
+    display: none;
+  }
+}
+
+#modal {
+  width: 30%;
+  background: #fff;
+  border: none;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: fade-slide-in-from-top 0.3s ease-in-out;
+}
+#modal ::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+#modal #modal h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+#modal #cart-items {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#modal #cart-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(232, 151, 62, 0.25);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+#modal #cart-items .cart-item-actions {
+  font-size: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+#modal #cart-items .cart-item-actions button {
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+#modal #cart-total-price {
+  text-align: right;
+}
+#modal form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+#modal form button {
+  text-decoration: none;
+  background-color: #fff;
+  color: #e8973e;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #e8973e;
+}
+#modal form button:hover {
+  color: #d77e33;
+  border: 2px solid #d77e33;
+  transition: all 0.2s ease-in-out;
+}
+#modal form button:last-of-type {
+  background-color: #e8973e;
+  color: #fff;
+}
+#modal form button:last-of-type:hover {
+  background-color: #d77e33;
+  border: 2px solid #d77e33;
+  transition: all 0.2s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  #modal {
+    width: 90%;
+  }
+}
+
+#shop {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 8.75rem;
+  margin-top: 10rem;
+}
+#shop h2 {
+  font-family: "Varela Round", sans-serif;
+}
+#shop #products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 2rem;
+}
+#shop #products .product {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  gap: 1rem;
+  position: relative;
+  width: 100%;
+}
+#shop #products .product img {
+  width: 6.5rem;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#shop #products .product:hover {
+  transform: scale(1.025);
+  transition: all 0.3s ease-in-out;
+}
+#shop #products .product .product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+#shop #products .product .product-content .product-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#shop #products .product .product-content .product-price {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+#shop #products .product .product-content .product-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: end;
+  width: 100%;
+  align-items: center;
+}
+#shop #products .product .product-content .product-actions :first-child {
+  text-decoration: none;
+  background-color: #fff;
+  color: #e8973e;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #e8973e;
+}
+#shop #products .product .product-content .product-actions button {
+  text-decoration: none;
+  background-color: #e8973e;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #e8973e;
+}
+@media screen and (max-width: 768px) {
+  #shop {
+    margin-top: 8rem;
+    padding: 0 2rem;
+  }
+  #shop #products {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    gap: 2rem;
+  }
+  #shop #products .product {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    gap: 1rem;
+    position: relative;
+    width: 100%;
+  }
+  #shop #products .product img {
+    width: 100%;
+    height: 15rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #shop #products .product .product-content .product-actions {
+    display: flex;
+    flex-direction: column;
+  }
+  #shop #products .product .product-content .product-actions :first-child {
+    width: 100%;
+    text-align: center;
+  }
+  #shop #products .product .product-content .product-actions button {
+    width: 100%;
+  }
+}
+
+.comments {
+  margin-top: 10rem;
+  padding: 0 8.75rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.comments a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #404042;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 1.5rem;
+}
+.comments a:hover {
+  scale: 1.01;
+  transition: all 0.2s ease-in-out;
+}
+.comments h1,
+.comments h2 {
+  font-size: 2rem;
+}
+.comments .infos,
+.comments .all-comments {
+  width: 50%;
+}
+.comments .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.comments .product {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  gap: 1rem;
+  position: relative;
+  justify-content: space-between;
+  align-items: end;
+}
+.comments .product img {
+  width: 16.5rem;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comments .product:hover {
+  transform: scale(1.01);
+  transition: all 0.3s ease-in-out;
+}
+.comments .product .main {
+  display: flex;
+  flex-direction: row;
+}
+.comments .product .product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+.comments .product .product-content .product-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.comments .product .product-content .product-price {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+.comments .product button {
+  text-decoration: none;
+  background-color: #e8973e;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #e8973e;
+}
+.comments .all-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.comments .all-comments form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.comments .all-comments form input,
+.comments .all-comments form textarea {
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 1rem;
+}
+.comments .all-comments form button {
+  text-decoration: none;
+  background-color: #98c455;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #98c455;
+}
+.comments .all-comments form button:hover {
+  background-color: #7faa44;
+  border: 2px solid #7faa44;
+  scale: 1.01;
+}
+.comments .all-comments .list {
+  height: 35vh;
+  overflow-y: scroll;
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+}
+.comments .all-comments .list .user {
+  margin-top: 0.5rem;
+}
+.comments .all-comments .list .user span {
+  font-family: "Varela Round", sans-serif;
+  font-weight: bolder;
+  color: black;
+  font-size: large;
+}
+.comments .all-comments .list .com {
+  opacity: 0.75;
+  padding-bottom: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .comments {
+    margin-top: 8rem;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .comments a {
+    width: 100%;
+    text-align: center;
+  }
+  .comments .infos,
+  .comments .all-comments {
+    width: 100%;
+  }
+  .comments .product {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    gap: 1rem;
+    position: relative;
+    justify-content: space-between;
+    align-items: end;
+  }
+  .comments .product img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .comments .product .main {
+    display: flex;
+    flex-direction: column;
+  }
+  .comments .product button {
+    width: 100%;
+  }
+  .comments .all-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+  .comments .all-comments .list {
+    height: 55vh;
+    overflow-y: scroll;
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+  }
+  .comments .all-comments .list .user {
+    margin-top: 0.5rem;
+  }
+  .comments .all-comments .list .user span {
+    font-family: "Varela Round", sans-serif;
+    font-weight: bolder;
+    color: black;
+    font-size: large;
+  }
+  .comments .all-comments .list .com {
+    opacity: 0.75;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@keyframes fade-slide-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-slide-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}/*# sourceMappingURL=style.css.map */
